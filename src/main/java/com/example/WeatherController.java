@@ -12,7 +12,6 @@ public class WeatherController {
     private final String WEATHER_API = "https://api.openweathermap.org/data/2.5/weather";
     private final String API_KEY = "5a7876a58dcdee34f7cfd242e8126b33";
 
-    // Original endpoint - get weather by coordinates
     @GetMapping()
     public String getWeatherByCoordinates(@RequestParam String latitude, @RequestParam String longitude) {
         RestTemplate restTemplate = new RestTemplate();
@@ -25,7 +24,6 @@ public class WeatherController {
         return "Error: Unable to fetch weather data";
     }
 
-    // New endpoint - get weather by city name
     @GetMapping("/city")
     public String getWeatherByCity(@RequestParam String city, @RequestParam String country) {
         RestTemplate restTemplate = new RestTemplate();
